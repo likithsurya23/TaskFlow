@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --primary: #1e293b;
+  --primary-hover: #0f172a;
+  --accent: #3b82f6;
+}
+
+.dark {
+  --background: #020617;
+  --foreground: #f8fafc;
+  --card: #0f172a;
+  --border: #1e293b;
+  --primary: #38bdf8;
+  --primary-hover: #0284c7;
+  --accent: #60a5fa;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Custom Wireframe Styling Helpers */
+.badge-high {
+  background-color: #fef2f2;
+  color: #ef4444;
+  border: 1px solid #fca5a5;
+}
+.dark .badge-high {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.badge-medium {
+  background-color: #fffbeb;
+  color: #d97706;
+  border: 1px solid #fde68a;
+}
+.dark .badge-medium {
+  background-color: rgba(217, 119, 6, 0.15);
+  color: #fcd34d;
+  border-color: rgba(217, 119, 6, 0.4);
+}
+
+.badge-low {
+  background-color: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #86efac;
+}
+.dark .badge-low {
+  background-color: rgba(22, 163, 74, 0.15);
+  color: #86efac;
+  border-color: rgba(22, 163, 74, 0.4);
+}
+
+.badge-in-progress {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+.dark .badge-in-progress {
+  background-color: rgba(37, 99, 235, 0.2);
+  color: #93c5fd;
+}
+
+.badge-pending {
+  background-color: #fefce8;
+  color: #ca8a04;
+}
+.dark .badge-pending {
+  background-color: rgba(202, 138, 4, 0.2);
+  color: #fde047;
+}
+
+.badge-completed {
+  background-color: #f0fdf4;
+  color: #16a34a;
+}
+.dark .badge-completed {
+  background-color: rgba(22, 163, 74, 0.2);
+  color: #86efac;
+}
