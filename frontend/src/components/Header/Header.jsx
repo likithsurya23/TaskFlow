@@ -66,7 +66,11 @@ export default function Header({ onToggleSidebar, activeTab }) {
         </button>
 
         {/* User Profile Avatar */}
-        <div className="flex items-center gap-2 sm:gap-3 border-l border-slate-200 dark:border-slate-800 pl-2 sm:pl-4 shrink-0 group relative cursor-pointer">
+        <button
+          type="button"
+          aria-label="User profile menu"
+          className="flex items-center gap-2 sm:gap-3 border-l border-slate-200 dark:border-slate-800 pl-2 sm:pl-4 shrink-0 group relative cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-lg transition-all"
+        >
           {/* Avatar with status indicator */}
           <div className="relative">
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-slate-800 to-slate-600 dark:from-sky-500 dark:to-sky-400 text-white dark:text-slate-950 font-bold text-xs sm:text-sm flex items-center justify-center shadow-md shadow-slate-900/20 dark:shadow-sky-500/20 ring-2 ring-white dark:ring-slate-800 hover:scale-105 transition-transform duration-200">
@@ -87,7 +91,7 @@ export default function Header({ onToggleSidebar, activeTab }) {
           </div>
           {/* Chevron with hover animation */}
           <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-all group-hover:rotate-180 duration-300 hidden sm:block" />
-        </div>
+        </button>
       </div>
     </header>
   );

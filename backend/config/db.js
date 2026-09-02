@@ -2,14 +2,34 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
     try {
-        const conn = await mongoose.connect(process.env.MONGO_URI, {
-            serverSelectionTimeoutMS: 3000 // Quick timeout if Mongo isn't running locally
+        const mongoUri = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/taskflow";
+        
+        console.log("Connecting to MongoDB...");
+        const conn = await mongoose.connect(mongoUri, {
+            serverSelectionTimeoutMS: 10000 // 10s timeout for cloud services like Render
         });
-        console.log(`MongoDB connected successfully: ${conn.connection.host}`);
+
+        console.log(`✅ MongoDB Connected Successfully: ${conn.connection.host} (DB: ${conn.connection.name})`);
     } catch (error) {
-        console.warn("⚠️ Local MongoDB connection failed or MongoDB is not running:", error.message);
-        console.warn("💡 Tip: Ensure MongoDB service is started on mongodb://127.0.0.1:27017 or update MONGO_URI in .env.");
+        console.error("❌ MongoDB Connection Error:", error.message);
+        console.error("💡 Check list for Render deployment:");
+        console.error(" 1. Is MONGO_URI set in Render Environment Variables?");
+        console.error(" 2. In MongoDB Atlas -> Network Access, is 0.0.0.0/0 added?");
+        console.error(" 3. Are username/password correct in MONGO_URI?");
     }
 };
+
+// Monitor connection events
+mongoose.connection.on("connected", () => {
+    console.log("🟢 Mongoose connected to DB");
+});
+
+mongoose.connection.on("error", (err) => {
+    console.error("🔴 Mongoose connection error:", err.message);
+});
+
+mongoose.connection.on("disconnected", () => {
+    console.warn("⚠️ Mongoose connection disconnected");
+});
 
 module.exports = connectDB;
