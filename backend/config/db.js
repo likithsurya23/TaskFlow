@@ -6,6 +6,7 @@ const connectDB = async () => {
         
         console.log("Connecting to MongoDB...");
         const conn = await mongoose.connect(mongoUri, {
+            dbName: "taskflow",
             serverSelectionTimeoutMS: 10000 // 10s timeout for cloud services like Render
         });
 
