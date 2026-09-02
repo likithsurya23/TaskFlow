@@ -44,23 +44,6 @@ export default function DashboardPage() {
                 Welcome back, {user?.name || "Developer"}! 👋
               </h1>
             </div>
-
-            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-              <button
-                onClick={openModalForCreate}
-                className="flex items-center gap-1.5 px-3 py-2 sm:px-4 sm:py-2.5 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-lg sm:rounded-xl shadow-xs transition-all cursor-pointer text-xs sm:text-sm"
-              >
-                <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                New Task
-              </button>
-              <Link
-                href="/tasks"
-                className="flex items-center gap-1.5 px-3 py-2 sm:px-4 sm:py-2.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg sm:rounded-xl transition-all text-xs sm:text-sm"
-              >
-                View Tasks
-                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              </Link>
-            </div>
           </div>
 
           {/* Key Stats Cards */}

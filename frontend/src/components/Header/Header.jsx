@@ -66,14 +66,27 @@ export default function Header({ onToggleSidebar, activeTab }) {
         </button>
 
         {/* User Profile Avatar */}
-        <div className="flex items-center gap-1 sm:gap-2 border-l border-slate-200 dark:border-slate-800 pl-1.5 sm:pl-3 shrink-0">
-          <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-slate-900 dark:bg-sky-500 text-white dark:text-slate-950 font-bold text-[10px] sm:text-xs flex items-center justify-center border border-slate-700 dark:border-sky-400 shadow-xs shrink-0">
-            {user?.name ? user.name.charAt(0).toUpperCase() : "U"}
+        <div className="flex items-center gap-2 sm:gap-3 border-l border-slate-200 dark:border-slate-800 pl-2 sm:pl-4 shrink-0 group relative cursor-pointer">
+          {/* Avatar with status indicator */}
+          <div className="relative">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-slate-800 to-slate-600 dark:from-sky-500 dark:to-sky-400 text-white dark:text-slate-950 font-bold text-xs sm:text-sm flex items-center justify-center shadow-md shadow-slate-900/20 dark:shadow-sky-500/20 ring-2 ring-white dark:ring-slate-800 hover:scale-105 transition-transform duration-200">
+              {user?.name ? user.name.charAt(0).toUpperCase() : "U"}
+            </div>
+            {/* Online status dot */}
+            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-800 shadow-sm"></span>
           </div>
-          <span className="hidden sm:block text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
-            {user?.name || "User"}
-          </span>
-          <ChevronDown className="w-4 h-4 text-slate-400 hidden sm:block" />
+
+          {/* User info */}
+          <div className="hidden sm:flex flex-col leading-tight">
+            <span className="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors">
+              {user?.name || "User"}
+            </span>
+            <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">
+              {user?.email || "user@example.com"}
+            </span>
+          </div>
+          {/* Chevron with hover animation */}
+          <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-all group-hover:rotate-180 duration-300 hidden sm:block" />
         </div>
       </div>
     </header>

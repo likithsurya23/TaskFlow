@@ -79,9 +79,6 @@ export default function AnalyticsPage() {
             </div>
             <div>
               <h1 className="text-lg sm:text-2xl font-bold tracking-tight">Task Analytics</h1>
-              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 hidden xs:block">
-                Track completion metrics and productivity insights
-              </p>
             </div>
           </div>
 

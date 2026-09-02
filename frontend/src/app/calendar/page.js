@@ -116,14 +116,12 @@ export default function CalendarPage() {
 
         <main className="p-4 sm:p-6 lg:p-8 space-y-6 max-w-7xl w-full mx-auto">
           {/* Header Bar */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-sky-500/10 text-sky-500 dark:bg-sky-400/20">
-                <CalendarIcon className="w-6 h-6" />
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold tracking-tight">Task Calendar</h1>
-              </div>
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-sky-500/10 text-sky-500 dark:bg-sky-400/20 shrink-0">
+              <CalendarIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+            </div>
+            <div>
+              <h1 className="text-lg sm:text-2xl font-bold tracking-tight">Task Calendar</h1>
             </div>
           </div>
 
