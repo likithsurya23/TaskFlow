@@ -2,24 +2,50 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+.font-orbitron {
+  font-family: var(--font-orbitron), system-ui, sans-serif;
+}
+
+@theme {
+  --color-slate-50: #ffffff;
+  --color-slate-100: #f5f5f5;
+  --color-slate-200: #e5e5e5;
+  --color-slate-300: #d4d4d4;
+  --color-slate-400: #737373;
+  --color-slate-500: #525252;
+  --color-slate-600: #404040;
+  --color-slate-700: #262626;
+  --color-slate-800: #180d26;
+  --color-slate-850: #10081c;
+  --color-slate-900: #090410;
+  --color-slate-950: #000000;
+
+  --color-sky-300: #d8b4fe;
+  --color-sky-400: #c084fc;
+  --color-sky-500: #9333ea;
+  --color-sky-600: #7e22ce;
+  --color-sky-900: #3b0764;
+  --color-sky-950: #1c0530;
+}
+
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #ffffff;
+  --foreground: #000000;
   --card: #ffffff;
-  --border: #e2e8f0;
-  --primary: #1e293b;
-  --primary-hover: #0f172a;
-  --accent: #3b82f6;
+  --border: #e5e5e5;
+  --primary: #000000;
+  --primary-hover: #171717;
+  --accent: #000000;
 }
 
 .dark {
-  --background: #020617;
-  --foreground: #f8fafc;
-  --card: #0f172a;
-  --border: #1e293b;
-  --primary: #38bdf8;
-  --primary-hover: #0284c7;
-  --accent: #60a5fa;
+  --background: #000000;
+  --foreground: #f5f0fa;
+  --card: #090410;
+  --border: #231138;
+  --primary: #9333ea;
+  --primary-hover: #7e22ce;
+  --accent: #a855f7;
 }
 
 body {
@@ -92,3 +118,144 @@ body {
   background-color: rgba(22, 163, 74, 0.2);
   color: #86efac;
 }
+
+/* =========================================
+   Pulse Wave Animation Keyframes (Tailwind)
+   ========================================= */
+
+@keyframes bgPulse {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes pulseRipple1 {
+  0% {
+    transform: scale(0.3);
+    opacity: 0.5;
+    border-width: 3px;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+@keyframes pulseRipple2 {
+  0% {
+    transform: scale(0.3);
+    opacity: 0.5;
+    border-width: 3px;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+@keyframes pulseRipple3 {
+  0% {
+    transform: scale(0.3);
+    opacity: 0.4;
+    border-width: 3px;
+  }
+  75% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+@keyframes pulseRipple4 {
+  0% {
+    transform: scale(0.3);
+    opacity: 0.4;
+    border-width: 3px;
+  }
+  75% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+@keyframes pulseRipple5 {
+  0% {
+    transform: scale(0.3);
+    opacity: 0.2;
+    border-width: 3px;
+  }
+  75% {
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+@keyframes hubPulse {
+  0% {
+    transform: scale(0.97);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.9), 0 0 16px rgba(147, 51, 234, 0.22);
+  }
+  100% {
+    transform: scale(1.03);
+    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.95), 0 0 30px rgba(168, 85, 247, 0.35), 0 0 45px rgba(126, 34, 206, 0.25);
+  }
+}
+
+@keyframes liquidGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes textGlow {
+  0% {
+    filter: drop-shadow(0 0 8px rgba(147, 51, 234, 0.45));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(168, 85, 247, 0.65));
+  }
+  100% {
+    filter: drop-shadow(0 0 22px rgba(192, 132, 252, 0.8));
+  }
+}
+
+@keyframes progressTravel {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+

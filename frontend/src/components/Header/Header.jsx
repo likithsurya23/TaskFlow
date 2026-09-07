@@ -2,8 +2,8 @@
 
 import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
-import { 
-  Menu, Search, Bell, Sun, Moon, 
+import {
+  Menu, Search, Bell, Sun, Moon,
   Clock, AlertTriangle, CheckCircle2, Calendar, Check, Flame
 } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";

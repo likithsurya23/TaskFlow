@@ -79,19 +79,22 @@ export default function Home() {
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-6 xs:py-10 sm:py-16 md:py-28 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-16 items-center w-full">
         {/* Left Copy */}
         <div className="space-y-4 sm:space-y-8">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1 sm:py-1.5 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/40 dark:to-indigo-950/40 border border-blue-200/80 dark:border-blue-900/40 text-blue-700 dark:text-blue-300 rounded-full text-[10px] sm:text-xs font-semibold backdrop-blur-sm">
-            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1 sm:py-1.5 bg-neutral-100 dark:bg-fuchsia-950/60 border border-neutral-200 dark:border-fuchsia-800/50 text-black dark:text-fuchsia-300 rounded-full text-[10px] sm:text-xs font-semibold backdrop-blur-sm shadow-xs">
+            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-black dark:text-pink-400" />
             <span className="hidden xs:inline">Smart Task Management</span>
             <span className="xs:hidden">Task Management</span>
           </div>
 
           <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.15] tracking-tight">
-            <span className="text-slate-900 dark:text-slate-100">
-              Organize your work and get more done
+            <span className="text-black dark:text-white">
+              Organize your work and{" "}
+            </span>
+            <span className="text-neutral-600 dark:bg-gradient-to-r dark:from-pink-400 dark:via-fuchsia-400 dark:to-purple-400 dark:bg-clip-text dark:text-transparent">
+              get more done
             </span>
           </h1>
 
-          <p className="text-xs sm:text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
+          <p className="text-xs sm:text-base md:text-lg text-neutral-600 dark:text-fuchsia-100/70 max-w-lg leading-relaxed">
             A clean, intuitive platform to manage your tasks, track progress, and boost productivity.
           </p>
 
@@ -113,7 +116,6 @@ export default function Home() {
             </Link>
           </div>
         </div>
-
         {/* Right Dashboard Preview - Empty State */}
         <div className="bg-white dark:bg-slate-900 p-3 sm:p-8 rounded-xl sm:rounded-3xl border border-slate-200 dark:border-slate-800 shadow-lg sm:shadow-2xl space-y-2 sm:space-y-6 transition-all hover:scale-[1.01] duration-300">
           <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2 sm:pb-5">
@@ -164,13 +166,13 @@ export default function Home() {
         </div>
       </main>
       {/* Footer */}
-      <footer className="border-t border-slate-200/80 dark:border-slate-800/80 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-4 sm:py-8 text-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            © 2026 TaskFlow System.
-          </p>
-        </div>
-      </footer>
+      <footer className="border-t border-slate-200/80 dark:border-slate-800/80 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-4 sm:py-6 text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+          © 2026 <span className="font-medium text-slate-700 dark:text-slate-300">TaskFlow</span>
+        </p>
+      </div>
+    </footer>
     </div>
   );
 }

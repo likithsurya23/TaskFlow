@@ -8,7 +8,7 @@ import StatsRow from "@/components/StatsRow/StatsRow";
 import TaskList from "@/components/TaskList/TaskList";
 import TaskModal from "@/components/TaskModal/TaskModal";
 import { useAuth } from "@/context/AuthContext";
-import { ArrowRight, CheckSquare, Calendar, BarChart3, User as UserIcon, Settings as SettingsIcon } from "lucide-react";
+import { ArrowRight, CheckSquare, Calendar, BarChart3 } from "lucide-react";
 
 export default function DashboardPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -116,46 +116,6 @@ export default function DashboardPage() {
                   </p>
                 </div>
                 <div className="mt-2.5 flex items-center gap-1 text-[11px] font-semibold text-amber-500">
-                  Open <ArrowRight className="w-3 h-3" />
-                </div>
-              </Link>
-
-              <Link
-                href="/profile"
-                className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs hover:shadow-md transition-all group cursor-pointer flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/20 flex items-center justify-center mb-2.5 sm:mb-3 group-hover:scale-110 transition-transform">
-                    <UserIcon className="w-4 h-4 sm:w-5 sm:h-5" />
-                  </div>
-                  <h3 className="text-xs sm:text-base font-bold text-slate-900 dark:text-slate-100 group-hover:text-emerald-500 transition-colors">
-                    User Profile
-                  </h3>
-                  <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-2">
-                    Account details & stats
-                  </p>
-                </div>
-                <div className="mt-2.5 flex items-center gap-1 text-[11px] font-semibold text-emerald-500">
-                  Open <ArrowRight className="w-3 h-3" />
-                </div>
-              </Link>
-
-              <Link
-                href="/settings"
-                className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs hover:shadow-md transition-all group cursor-pointer flex flex-col justify-between col-span-2 md:col-span-1"
-              >
-                <div>
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-purple-500/10 text-purple-500 dark:bg-purple-400/20 flex items-center justify-center mb-2.5 sm:mb-3 group-hover:scale-110 transition-transform">
-                    <SettingsIcon className="w-4 h-4 sm:w-5 sm:h-5" />
-                  </div>
-                  <h3 className="text-xs sm:text-base font-bold text-slate-900 dark:text-slate-100 group-hover:text-purple-500 transition-colors">
-                    Settings
-                  </h3>
-                  <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-2">
-                    Theme & preferences
-                  </p>
-                </div>
-                <div className="mt-2.5 flex items-center gap-1 text-[11px] font-semibold text-purple-500">
                   Open <ArrowRight className="w-3 h-3" />
                 </div>
               </Link>

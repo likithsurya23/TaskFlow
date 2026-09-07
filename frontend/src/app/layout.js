@@ -1,7 +1,15 @@
 import "./globals.css";
+import { Orbitron } from "next/font/google";
 import { AuthProvider } from "@/context/AuthContext";
 import { TaskProvider } from "@/context/TaskContext";
 import { ThemeProvider } from "@/context/ThemeContext";
+import PulseWaveLoader from "@/components/PulseWaveLoader/PulseWaveLoader";
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  variable: "--font-orbitron",
+  display: "swap",
+});
 
 export const metadata = {
   title: "TaskFlow - Task Management System",
@@ -29,7 +37,8 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-200 min-h-screen">
+      <body className={`bg-white dark:bg-black text-black dark:text-purple-50 transition-colors duration-200 min-h-screen ${orbitron.variable}`}>
+        <PulseWaveLoader isSplash={true} minDuration={4500} />
         <ThemeProvider>
           <AuthProvider>
             <TaskProvider>
@@ -41,3 +50,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
