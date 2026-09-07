@@ -100,18 +100,11 @@ export function AuthProvider({ children }) {
             }
             return { success: true };
         } catch (error) {
-            console.warn("API Connection Error on Login, falling back to Demo Mode:", error.message);
-            // Fallback for offline demo mode
-            const demoUser = { name: email.split("@")[0] || "User", email: email.trim() };
-            const demoToken = "demo_token_" + Date.now();
-            setUser(demoUser);
-            setToken(demoToken);
-            if (typeof window !== "undefined") {
-                const storage = rememberMe ? localStorage : sessionStorage;
-                storage.setItem("taskflow_token", demoToken);
-                storage.setItem("taskflow_user", JSON.stringify(demoUser));
-            }
-            return { success: true };
+            console.error("API Connection Error on Login:", error.message);
+            return { 
+                success: false, 
+                message: `Cannot connect to backend server (${API_BASE_URL}). Check if the backend is awake or update NEXT_PUBLIC_API_URL.` 
+            };
         }
     };
 
@@ -136,17 +129,11 @@ export function AuthProvider({ children }) {
             }
             return { success: true };
         } catch (error) {
-            console.warn("API Connection Error on Register, falling back to Demo Mode:", error.message);
-            // Fallback offline demo mode
-            const demoUser = { name: name.trim(), email: email.trim() };
-            const demoToken = "demo_token_" + Date.now();
-            setUser(demoUser);
-            setToken(demoToken);
-            if (typeof window !== "undefined") {
-                localStorage.setItem("taskflow_token", demoToken);
-                localStorage.setItem("taskflow_user", JSON.stringify(demoUser));
-            }
-            return { success: true };
+            console.error("API Connection Error on Register:", error.message);
+            return { 
+                success: false, 
+                message: `Cannot connect to backend server (${API_BASE_URL}). Check if the backend is awake or update NEXT_PUBLIC_API_URL.` 
+            };
         }
     };
 

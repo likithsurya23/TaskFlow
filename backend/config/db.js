@@ -8,13 +8,14 @@ const connectDB = async () => {
             console.warn("⚠️ MONGO_URI is NOT defined in environment variables! Render requires setting MONGO_URI in Environment Settings.");
         }
 
-        const uriToUse = mongoUri || "mongodb://127.0.0.1:27017/taskflow";
+        const ATLAS_URI = "mongodb+srv://taskflow_admin:Admin123@cluster0.mxcygww.mongodb.net/taskflow?retryWrites=true&w=majority";
+        const uriToUse = mongoUri || ATLAS_URI;
         const isAtlas = uriToUse.includes("mongodb+srv");
         console.log(`Connecting to MongoDB (${isAtlas ? "MongoDB Atlas Cloud" : "Local Database"})...`);
 
         const conn = await mongoose.connect(uriToUse, {
             dbName: "taskflow",
-            serverSelectionTimeoutMS: 8000
+            serverSelectionTimeoutMS: 10000
         });
 
         console.log(`✅ MongoDB Connected Successfully: ${conn.connection.host} (DB: ${conn.connection.name})`);

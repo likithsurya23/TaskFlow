@@ -193,9 +193,12 @@ export function TaskProvider({ children }) {
                     saveUserCache(updated);
                     return updated;
                 });
+            } else {
+                const errData = await res.json().catch(() => ({}));
+                console.error("❌ Failed to save task to MongoDB Atlas:", res.status, errData.message || res.statusText);
             }
         } catch (error) {
-            console.warn("API Add Error:", error);
+            console.error("❌ API Add Error:", error.message);
         }
     };
 
@@ -207,7 +210,7 @@ export function TaskProvider({ children }) {
         });
 
         try {
-            await fetch(`${API_BASE_URL}/tasks/${id}`, {
+            const res = await fetch(`${API_BASE_URL}/tasks/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -215,8 +218,12 @@ export function TaskProvider({ children }) {
                 },
                 body: JSON.stringify(updatedData)
             });
+            if (!res.ok) {
+                const errData = await res.json().catch(() => ({}));
+                console.error("❌ Failed to update task in MongoDB Atlas:", res.status, errData.message || res.statusText);
+            }
         } catch (error) {
-            console.warn("API Update Error:", error);
+            console.error("❌ API Update Error:", error.message);
         }
     };
 
@@ -238,14 +245,18 @@ export function TaskProvider({ children }) {
         });
 
         try {
-            await fetch(`${API_BASE_URL}/tasks/${id}`, {
+            const res = await fetch(`${API_BASE_URL}/tasks/${id}`, {
                 method: "DELETE",
                 headers: {
                     ...(token && { Authorization: `Bearer ${token}` })
                 }
             });
+            if (!res.ok) {
+                const errData = await res.json().catch(() => ({}));
+                console.error("❌ Failed to delete task in MongoDB Atlas:", res.status, errData.message || res.statusText);
+            }
         } catch (error) {
-            console.warn("API Delete Error:", error);
+            console.error("❌ API Delete Error:", error.message);
         }
     };
 
