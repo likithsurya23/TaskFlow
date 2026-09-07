@@ -62,7 +62,7 @@ TaskFlow/
 ### Prerequisites
 - **Node.js** (v18.0.0 or higher)
 - **npm** (v9.0.0 or higher)
-- **MongoDB** (Local instance running at `mongodb://127.0.0.1:27017` or a MongoDB Atlas URI)
+- **MongoDB** (Local instance or a MongoDB Atlas URI)
 
 ---
 
@@ -81,7 +81,7 @@ TaskFlow/
 3. Create or inspect the `.env` file in the `backend/` directory:
    ```env
    PORT=5000
-   MONGO_URI=mongodb://127.0.0.1:27017/taskflow
+   MONGO_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/<database_name>
    JWT_SECRET=your_super_secret_jwt_key
    ```
 
