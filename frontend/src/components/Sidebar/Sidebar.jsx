@@ -8,7 +8,6 @@ import {
   CheckSquare, 
   Calendar as CalendarIcon, 
   BarChart3, 
-  User as UserIcon, 
   Settings as SettingsIcon, 
   LogOut,
   X
@@ -26,7 +25,6 @@ export default function Sidebar({
     { href: "/tasks", label: "Tasks", icon: CheckSquare },
     { href: "/calendar", label: "Calendar", icon: CalendarIcon },
     { href: "/analytics", label: "Analytics", icon: BarChart3 },
-    { href: "/profile", label: "Profile", icon: UserIcon },
     { href: "/settings", label: "Settings", icon: SettingsIcon },
   ];
 

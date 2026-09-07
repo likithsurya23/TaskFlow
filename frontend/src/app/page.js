@@ -163,61 +163,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-
-      {/* Features Section */}
-      <section id="features" className="border-t border-slate-200/80 dark:border-slate-800/80 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-6 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-4 sm:mb-12">
-            <h3 className="text-lg sm:text-3xl font-bold text-slate-900 dark:text-slate-100">
-              Everything you need to stay organized
-            </h3>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-8">
-            <div className="bg-white dark:bg-slate-900 p-3 sm:p-6 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-all flex flex-row sm:flex-col items-start gap-3 sm:gap-0">
-              <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0 sm:mb-4">
-                <Plus className="w-4 h-4 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
-              </div>
-              <div>
-                <h3 className="text-xs sm:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-0.5 sm:mb-2">
-                  Create Tasks
-                </h3>
-                <p className="text-[11px] sm:text-sm text-slate-600 dark:text-slate-400 leading-tight sm:leading-relaxed">
-                  Add and organize tasks with priority levels and due dates.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-slate-900 p-3 sm:p-6 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-all flex flex-row sm:flex-col items-start gap-3 sm:gap-0">
-              <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shrink-0 sm:mb-4">
-                <LayoutDashboard className="w-4 h-4 sm:w-6 sm:h-6 text-emerald-600 dark:text-emerald-400" />
-              </div>
-              <div>
-                <h3 className="text-xs sm:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-0.5 sm:mb-2">
-                  Track Progress
-                </h3>
-                <p className="text-[11px] sm:text-sm text-slate-600 dark:text-slate-400 leading-tight sm:leading-relaxed">
-                  Monitor your productivity with visual progress tracking.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-slate-900 p-3 sm:p-6 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-all flex flex-row sm:flex-col items-start gap-3 sm:gap-0 sm:col-span-2 lg:col-span-1">
-              <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center shrink-0 sm:mb-4">
-                <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-amber-600 dark:text-amber-400" />
-              </div>
-              <div>
-                <h3 className="text-xs sm:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-0.5 sm:mb-2">
-                  Stay Organized
-                </h3>
-                <p className="text-[11px] sm:text-sm text-slate-600 dark:text-slate-400 leading-tight sm:leading-relaxed">
-                  Keep everything in one place with an intuitive interface.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="border-t border-slate-200/80 dark:border-slate-800/80 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-4 sm:py-8 text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
