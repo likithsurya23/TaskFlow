@@ -8,12 +8,10 @@ import FilterBar from "@/components/FilterBar/FilterBar";
 import TaskList from "@/components/TaskList/TaskList";
 import Pagination from "@/components/Pagination/Pagination";
 import TaskModal from "@/components/TaskModal/TaskModal";
-import { useTasks } from "@/context/TaskContext";
-import { Plus, CheckSquare } from "lucide-react";
+import { CheckSquare } from "lucide-react";
 
 export default function TasksPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const { openModalForCreate } = useTasks();
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex text-slate-800 dark:text-slate-200 font-sans transition-colors duration-200">

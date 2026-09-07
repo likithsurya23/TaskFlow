@@ -11,19 +11,18 @@ const PORT = process.env.PORT || 5000;
 
 // Enable CORS for frontend app
 const allowedOrigins = [
-    process.env.CLIENT_URL,
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "http://localhost:3001",
-    "http://127.0.0.1:3001"
+    process.env.CLIENT_URL
 ].filter(Boolean);
 
 app.use(cors({
     origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
+        // Allow requests with no origin (like mobile apps, curl, or server-to-server) or matching origins
+        if (!origin || allowedOrigins.includes(origin) || allowedOrigins.some(o => origin.startsWith(o))) {
             callback(null, true);
         } else {
-            callback(null, origin); // Allow requests from any local development origin
+            callback(null, true); // Allow all origins for production flexibility
         }
     },
     credentials: true,

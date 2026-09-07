@@ -10,7 +10,6 @@ import {
   CheckCircle2,
   Clock,
   AlertTriangle,
-  Sparkles,
   PieChart,
   ListTodo,
   ShieldAlert

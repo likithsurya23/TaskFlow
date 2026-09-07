@@ -7,14 +7,12 @@ import Header from "@/components/Header/Header";
 import StatsRow from "@/components/StatsRow/StatsRow";
 import TaskList from "@/components/TaskList/TaskList";
 import TaskModal from "@/components/TaskModal/TaskModal";
-import { useTasks } from "@/context/TaskContext";
 import { useAuth } from "@/context/AuthContext";
-import { Plus, ArrowRight, CheckSquare, Calendar, BarChart3, User as UserIcon, Settings as SettingsIcon } from "lucide-react";
+import { ArrowRight, CheckSquare, Calendar, BarChart3, User as UserIcon, Settings as SettingsIcon } from "lucide-react";
 
 export default function DashboardPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { user } = useAuth();
-  const { openModalForCreate } = useTasks();
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex text-slate-800 dark:text-slate-200 font-sans transition-colors duration-200">
