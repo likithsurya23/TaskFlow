@@ -9,13 +9,7 @@ const taskRoutes = require("./routes/taskRoutes");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Enable CORS for frontend app
-const allowedOrigins = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    process.env.CLIENT_URL
-].filter(Boolean);
-
+// Enable CORS for all frontend origins (Vercel, localhost, etc.)
 app.use(cors({
     origin: true,
     credentials: true,
@@ -28,8 +22,12 @@ app.use(express.json());
 // Initialize MongoDB database connection
 connectDB();
 
-// Health check endpoint
+// Health check endpoints
 app.get("/", (req, res) => {
+    res.json({ message: "TaskFlow API is running smoothly 🚀", timestamp: new Date().toISOString() });
+});
+
+app.get("/api", (req, res) => {
     res.json({ message: "TaskFlow API is running smoothly 🚀", timestamp: new Date().toISOString() });
 });
 

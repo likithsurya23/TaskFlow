@@ -14,7 +14,8 @@ const defaultAuthContext = {
 
 const AuthContext = createContext(defaultAuthContext);
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+const rawApiUrl = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api").trim().replace(/\/+$/, "");
+const API_BASE_URL = rawApiUrl.endsWith("/api") ? rawApiUrl : `${rawApiUrl}/api`;
 
 export function AuthProvider({ children }) {
     const router = useRouter();
