@@ -5,6 +5,7 @@ import Sidebar from "@/components/Sidebar/Sidebar";
 import Header from "@/components/Header/Header";
 import TaskModal from "@/components/TaskModal/TaskModal";
 import { useTasks } from "@/context/TaskContext";
+import { useSidebar } from "@/context/SidebarContext";
 import {
   Calendar as CalendarIcon,
   ChevronLeft,
@@ -15,6 +16,7 @@ import {
 export default function CalendarPage() {
   const { allTasks, openModalForEdit } = useTasks();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { isCollapsed } = useSidebar();
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const year = currentDate.getFullYear();
@@ -111,10 +113,13 @@ export default function CalendarPage() {
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex text-slate-800 dark:text-slate-200 font-sans transition-colors duration-200">
       <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
-      <div className="flex-1 flex flex-col lg:pl-64 min-w-0">
-        <Header activeTab="calendar" onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
+      <div className={`flex-1 flex flex-col min-w-0 transition-all duration-300 ease-in-out ${isCollapsed ? "lg:pl-20" : "lg:pl-64"}`}>
+        <Header
+          activeTab="calendar"
+          onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+        />
 
-        <main className="p-4 sm:p-6 lg:p-8 space-y-6 max-w-7xl w-full mx-auto">
+        <main className="p-4 sm:p-6 lg:p-8 space-y-6 w-full">
           {/* Header Bar */}
           <div className="flex items-center gap-2.5 sm:gap-3">
             <div className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-sky-500/10 text-sky-500 dark:bg-sky-400/20 shrink-0">

@@ -6,10 +6,12 @@ import Sidebar from "@/components/Sidebar/Sidebar";
 import Header from "@/components/Header/Header";
 import { Settings as SettingsIcon, Bell, Moon, Layout } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import { useSidebar } from "@/context/SidebarContext";
 
 export default function SettingsPage() {
   const { theme, toggleTheme } = useTheme();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { isCollapsed } = useSidebar();
   const [emailNotify, setEmailNotify] = useState(true);
   const [compactMode, setCompactMode] = useState(false);
 
@@ -17,10 +19,13 @@ export default function SettingsPage() {
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex text-slate-800 dark:text-slate-200 font-sans transition-colors duration-200">
       <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
-      <div className="flex-1 flex flex-col lg:pl-64 min-w-0">
-        <Header activeTab="settings" onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
+      <div className={`flex-1 flex flex-col min-w-0 transition-all duration-300 ease-in-out ${isCollapsed ? "lg:pl-20" : "lg:pl-64"}`}>
+        <Header
+          activeTab="settings"
+          onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+        />
 
-        <main className="p-3 sm:p-6 lg:p-8 space-y-4 sm:space-y-6 max-w-4xl w-full mx-auto">
+        <main className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6 w-full">
           {/* Header */}
           <div className="flex items-center gap-2.5 sm:gap-3">
             <div className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-sky-500/10 text-sky-500 dark:bg-sky-400/20 shrink-0">

@@ -9,9 +9,11 @@ import TaskList from "@/components/TaskList/TaskList";
 import Pagination from "@/components/Pagination/Pagination";
 import TaskModal from "@/components/TaskModal/TaskModal";
 import { CheckSquare } from "lucide-react";
+import { useSidebar } from "@/context/SidebarContext";
 
 export default function TasksPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { isCollapsed } = useSidebar();
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex text-slate-800 dark:text-slate-200 font-sans transition-colors duration-200">
@@ -22,7 +24,7 @@ export default function TasksPage() {
       />
 
       {/* Main Content Layout */}
-      <div className="flex-1 flex flex-col lg:pl-64 min-w-0">
+      <div className={`flex-1 flex flex-col min-w-0 transition-all duration-300 ease-in-out ${isCollapsed ? "lg:pl-20" : "lg:pl-64"}`}>
         {/* Top Header */}
         <Header
           activeTab="tasks"
@@ -30,7 +32,7 @@ export default function TasksPage() {
         />
 
         {/* Task Management View */}
-        <main className="p-3 sm:p-6 lg:p-8 space-y-4 sm:space-y-6 max-w-7xl w-full mx-auto">
+        <main className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6 w-full">
           {/* Header Bar */}
           <div className="flex items-center gap-2.5 sm:gap-3">
             <div className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-sky-500/10 text-sky-500 dark:bg-sky-400/20 shrink-0">

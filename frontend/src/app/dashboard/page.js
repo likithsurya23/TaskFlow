@@ -8,11 +8,13 @@ import StatsRow from "@/components/StatsRow/StatsRow";
 import TaskList from "@/components/TaskList/TaskList";
 import TaskModal from "@/components/TaskModal/TaskModal";
 import { useAuth } from "@/context/AuthContext";
+import { useSidebar } from "@/context/SidebarContext";
 import { ArrowRight, CheckSquare, Calendar, BarChart3 } from "lucide-react";
 
 export default function DashboardPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { user } = useAuth();
+  const { isCollapsed } = useSidebar();
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex text-slate-800 dark:text-slate-200 font-sans transition-colors duration-200">
@@ -23,7 +25,7 @@ export default function DashboardPage() {
       />
 
       {/* Main Content Layout */}
-      <div className="flex-1 flex flex-col lg:pl-64 min-w-0">
+      <div className={`flex-1 flex flex-col min-w-0 transition-all duration-300 ease-in-out ${isCollapsed ? "lg:pl-20" : "lg:pl-64"}`}>
         {/* Top Header */}
         <Header
           activeTab="dashboard"
@@ -31,7 +33,7 @@ export default function DashboardPage() {
         />
 
         {/* Overview Dashboard Content */}
-        <main className="p-3 sm:p-6 lg:p-8 space-y-4 sm:space-y-8 max-w-7xl w-full mx-auto">
+        <main className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-8 w-full">
           {/* Welcome Banner */}
           <div className="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-sky-950 dark:via-slate-900 dark:to-slate-950 text-white shadow-md flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-6 border border-slate-700 dark:border-slate-800">
             <div>
